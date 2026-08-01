@@ -1,23 +1,23 @@
 import React from "react";
-import './style.css';
+import "./style.css";
 
 const Edit = () => {
-    return (
-      <div className="home-container">
-        <div className="home-card">Welcome to edit page</div>
-        <ul>
-          <li>
-            <a href="http://localhost:5173/">Home</a>
-          </li>
-          <li>
-            <a href="http://localhost:5173/d">Delete</a>
-          </li>
-          <li>
-            <a href="http://localhost:5173/c">Create</a>
-          </li>
-        </ul>
-      </div>
-    );
-} 
+  return (
+    <div>
+      <div>Welcome to edit page</div>
+      <ul>
+        <li>
+          <a href="http://localhost:5173/">Home</a>
+        </li>
+        <li>
+          <a href="http://localhost:5173/d">Delete</a>
+        </li>
+        <li>
+          <a href="http://localhost:5173/c">Create</a>
+        </li>
+      </ul>
+    </div>
+  );
+};
 
-export default Edit
+export default Edit;
