@@ -12,8 +12,8 @@ import DashboardCustomizeIcon from '@mui/icons-material/DashboardCustomize';
 import AddBoxIcon from '@mui/icons-material/AddBox';
 import { Link, useLocation } from "react-router-dom";
 import logo from "../../assets/Nsymb.png";
-
-export default function NestedList() {
+import "../style.css";
+export default function Menu() {
   const [open, setOpen] = React.useState(true);
 
   const handleClick = () => {
@@ -22,7 +22,7 @@ export default function NestedList() {
   };
   const location = useLocation();
   const path = location.pathname;
-  console .log("Current path:", path); 
+  console.log("Current path:", path);
 
 
   return (
@@ -32,7 +32,7 @@ export default function NestedList() {
       component="nav"
       aria-labelledby="nested-list-subheader"
       subheader={
-        <ListSubheader component="div" id="nested-list-subheader">
+        <ListSubheader component="div" id="nested-list-subheader" className="subheader">
           Football clubs
         </ListSubheader>
       }
@@ -42,7 +42,7 @@ export default function NestedList() {
         <ListItemIcon>
           <DashboardIcon />
         </ListItemIcon>
-        <ListItemText primary="All Clubs" />
+        <ListItemText primary={<b>All Clubs</b>} />
         {open ? <ExpandLess /> : <ExpandMore />}
       </ListItemButton>
       <Collapse in={open} timeout="auto" unmountOnExit>

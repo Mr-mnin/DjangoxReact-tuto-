@@ -1,13 +1,18 @@
+import usestate from "react";
 import Box from "@mui/material/Box";
 import Drawer from "@mui/material/Drawer";
 import AppBar from "@mui/material/AppBar";
 import CssBaseline from "@mui/material/CssBaseline";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
+import Menumini from "./menumini";
 import Menu from "./menu";
 const drawerWidth = 240;
+const minidrawerWidth = 80;
 
-export default function Navbar({content}) {
+export default function Navbar({ content }) {
+  
+  const { isbigmenu, setIsbigmenu } = useState(true);
   return (
     <Box sx={{ display: "flex" }}>
       <CssBaseline />
@@ -33,7 +38,7 @@ export default function Navbar({content}) {
         }}
       >
         <Toolbar />
-         <Menu/>
+         {isbigmenu ? <Menu /> : <Menumini />}
       </Drawer>
       <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
         <Toolbar />

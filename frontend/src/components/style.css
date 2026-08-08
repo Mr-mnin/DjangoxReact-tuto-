@@ -21,3 +21,8 @@ body,
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
     font-size: 1.1rem;
 }
+.subheader {
+    font-size: 30px;
+    font-weight: bold;
+   
+}
