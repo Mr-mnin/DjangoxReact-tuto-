@@ -2,7 +2,7 @@ import "./style.css";
 
 const Home = () => {
   return (
-    <div>
+    <div >
       <div>Welcome to Home page</div>
       <ul>
         <li>

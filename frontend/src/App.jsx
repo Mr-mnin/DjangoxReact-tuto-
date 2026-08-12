@@ -9,7 +9,7 @@ import Navbar from "./components/navBar/navbar.jsx";
 function App() {
   return (
     <>
-      <Navbar
+      <Navbar 
         content={
           <Routes>
             <Route path="" element={<Home />} />

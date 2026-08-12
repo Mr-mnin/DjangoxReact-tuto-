@@ -19,14 +19,14 @@ export default function Menushort() {
         sx={{ width: '100%', maxWidth: 360, bgcolor: 'background.paper' }}
         component="nav"
       >
-        <ListItemButton  component={Link} to="/" selected={path === "/"}>
-          <ListItemIcon>
+        <ListItemButton  component={Link} to="/" selected={path === "/"} sx={{display: "flex", justifyContent: "center"}}>
+          <ListItemIcon sx={{display: "flex", justifyContent: "center"}}>
             <DashboardIcon />
           </ListItemIcon>
         </ListItemButton>
 
-        <ListItemButton component={Link} to="/c" selected={path === "/c"}>
-          <ListItemIcon>
+        <ListItemButton component={Link} to="/c" selected={path === "/c"} sx={{display: "flex", justifyContent: "center"}}>
+          <ListItemIcon  sx={{display: "flex", justifyContent: "center"}}>
             <AddBoxIcon />
           </ListItemIcon>
           
