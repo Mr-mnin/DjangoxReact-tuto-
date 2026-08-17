@@ -11,6 +11,13 @@ class LeagueSerializer(serializers.ModelSerializer):
         model = League
         fields = ("id", "name")
 
+
+class CharacteristicSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Characteristic
+        fields = ("id", "name")
+
+        
 class FootballClubSerializer(serializers.ModelSerializer):
     class Meta:
         model = FootballClub
