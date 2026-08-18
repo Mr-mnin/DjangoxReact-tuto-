@@ -10,7 +10,7 @@ import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 import Menumini from "./menumini";
 import Menu from "./menu";
-import logo from "../../assets/nd.png";
+import logo from "../../assets/nd2.png";
 const drawerWidth = 240;
 const minidrawerWidth = 60;
 

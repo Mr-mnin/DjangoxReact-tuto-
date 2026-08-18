@@ -1,6 +1,54 @@
-.Mui-selected {
-  background-color: #0051ff6b !important; /* Change this to your desired color */
+:root {
+  --dark-bg: #0b1120;
+  --dark-panel: #111827;
+  --dark-panel-strong: #38434F;
+  --dark-border: rgba(148, 163, 184, 0.2);
+  --dark-text: #e5e7eb;
+  --dark-text-soft: #94a3b8;
+  --dark-accent: #60a5fa;
+  --dark-accent-strong: #2563eb;
 }
+
+
+
+body {
+  background: linear-gradient(180deg, #0b1120 0%, #111827 100%);
+  color: var(--dark-text);
+}
+
+#root {
+  background: var(--dark-bg);
+  color: var(--dark-text);
+}
+
+a {
+  color: var(--dark-accent);
+}
+
+a:hover {
+  color: var(--dark-accent-strong);
+}
+
+.Mui-selected {
+  background-color: rgba(96, 165, 250, 0.25) !important;
+}
+
 .toolbar {
-  background-color: #042050 !important; /* Change this to your desired color */
+  background-color: var(--dark-panel-strong) !important;
+  color: var(--dark-text) !important;
+  border: 1px solid var(--dark-border);
+}
+
+.TopBar {
+  display: flex;
+  padding: 10px 16px;
+  align-items: center;
+  background-color: var(--dark-panel-strong) !important;
+  color: var(--dark-text);
+  margin-bottom: 20px;
+  box-sizing: border-box;
+  border-top-left-radius: 12px;
+  border-top-right-radius: 12px;
+  border: 1px solid var(--dark-border);
+  box-shadow: 0 12px 24px rgba(15, 23, 42, 0.35);
 }

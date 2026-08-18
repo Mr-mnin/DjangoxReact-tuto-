@@ -1,5 +1,7 @@
 import { useState, useEffect } from "react";
 import AxiosInstance from "./Axios.jsx";
+import { Box, Typography } from "@mui/material"
+import AddBoxIcon from '@mui/icons-material/AddBox';
 
 const Create = () => {
   const [countries, setCountries] = useState([]);
@@ -29,7 +31,16 @@ const Create = () => {
   return (
 
     <div>
-      Welcome to create page
+      <Box className="TopBar">
+        <AddBoxIcon/>
+        <Typography variant="h6" component="div" sx={{ flexGrow: 1, ml: 2 }}>
+          Create a Club
+        </Typography>
+      </Box>
+
+      <Box className="formbox">
+        
+      </Box>
     </div>
   );
 };
