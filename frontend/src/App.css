@@ -45,10 +45,35 @@ a:hover {
   align-items: center;
   background-color: var(--dark-panel-strong) !important;
   color: var(--dark-text);
-  margin-bottom: 20px;
+  margin-bottom: 10px;
   box-sizing: border-box;
   border-top-left-radius: 12px;
   border-top-right-radius: 12px;
   border: 1px solid var(--dark-border);
+  box-shadow: 0 12px 24px rgba(15, 23, 42, 0.35);
+}
+
+.formbox {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  background-color: var(--dark-panel-strong) !important;
+  color: var(--dark-text);
+  padding: 5px;
+  
+  box-shadow: 0 12px 24px rgba(15, 23, 42, 0.35);
+}
+
+.formarea {
+  width: 100%;
+  max-width: 300px;
+  display: flex;
+  margin: 3px;
+  
+  background-color: var(--dark-panel) !important;
+  color: var(--dark-text);
+  padding: 20px;
+  padding-top: 6px;
   box-shadow: 0 12px 24px rgba(15, 23, 42, 0.35);
 }
