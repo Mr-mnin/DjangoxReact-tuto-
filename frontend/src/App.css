@@ -1,18 +1,17 @@
 :root {
   --dark-bg: #0b1120;
   --dark-panel: #111827;
-  --dark-panel-strong: #38434F;
+  --dark-panel-strong: #1f2937;
   --dark-border: rgba(148, 163, 184, 0.2);
   --dark-text: #e5e7eb;
   --dark-text-soft: #94a3b8;
   --dark-accent: #60a5fa;
-  --dark-accent-strong: #2563eb;
+  --dark-accent-strong: #93c5fd;
 }
 
-
-
 body {
-  background: linear-gradient(180deg, #0b1120 0%, #111827 100%);
+  background: radial-gradient(circle at top right, #172554 0, transparent 34rem),
+    var(--dark-bg);
   color: var(--dark-text);
 }
 
@@ -34,7 +33,7 @@ a:hover {
 }
 
 .MuiChip-filled.MuiChip-colorDefault {
-  background-color: #90909068  !important;
+  background-color: rgba(148, 163, 184, 0.4) !important;
 }
 
 .toolbar {
@@ -47,7 +46,7 @@ a:hover {
   display: flex;
   padding: 10px 16px;
   align-items: center;
-  background-color: var(--dark-text) !important;
+  background-color: var(--dark-panel-strong) !important;
   color: var(--dark-text);
   margin-bottom: 10px;
   box-sizing: border-box;
@@ -58,28 +57,108 @@ a:hover {
 }
 
 .formbox {
-  
-  display: flex;
-  flex-direction: row;
-  justify-content: CENTER;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
+  align-items: start;
+  max-width: 1100px;
+  margin: 0 auto;
   background-color: var(--dark-panel-strong) !important;
   color: var(--dark-text);
-  padding: 10px;
-  
+  padding: 28px;
   box-shadow: 0 12px 24px rgba(15, 23, 42, 0.35);
 }
 
 .formarea {
-  
-  width: auto;
-  min-width: 20vw;
+  min-width: 0;
   display: flex;
   flex-direction: column;
-  margin: 10px;
-  justify-content: space-between;
-  
+  gap: 24px;
   color: var(--dark-text);
-  padding: 20px;
-  padding-top: 6px;
-  box-shadow: 0 12px 24px rgba(15, 23, 42, 0.35);
+}
+
+.formarea > .MuiFormControl-root,
+.formarea > .MuiTextField-root,
+.formarea > form,
+.formarea > div {
+  width: 100%;
+  margin: 0;
+}
+
+.formarea .MuiTextField-root {
+  width: 100%;
+}
+
+@media (max-width: 900px) {
+  .formbox {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .formarea:last-child {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (max-width: 600px) {
+  .formbox {
+    grid-template-columns: 1fr;
+    gap: 20px;
+    padding: 20px;
+  }
+
+  .formarea:last-child {
+    grid-column: auto;
+  }
+}
+
+.MuiDrawer-paper,
+.MuiList-root,
+.MuiListSubheader-root {
+  background-color: var(--dark-panel) !important;
+  color: var(--dark-text);
+}
+
+.MuiListItemIcon-root,
+.MuiSvgIcon-root {
+  color: var(--dark-text-soft);
+}
+
+.MuiListItemButton-root:hover {
+  background-color: rgba(96, 165, 250, 0.1) !important;
+}
+
+.MuiListItemButton-root.Mui-selected {
+  background-color: rgba(96, 165, 250, 0.2) !important;
+  color: var(--dark-text);
+}
+
+.MuiInputBase-root,
+.MuiInputLabel-root,
+.MuiFormLabel-root {
+  color: var(--dark-text-soft) !important;
+}
+
+.MuiInputBase-input {
+  color: var(--dark-text) !important;
+}
+
+.formbox .MuiOutlinedInput-notchedOutline {
+  border-color: var(--dark-border);
+}
+
+.formbox .MuiOutlinedInput-root:hover .MuiOutlinedInput-notchedOutline {
+  border-color: rgba(147, 197, 253, 0.7);
+}
+
+.formbox .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline {
+  border-color: var(--dark-accent);
+  border-width: 2px;
+}
+
+.MuiInput-underline::before {
+  border-bottom-color: var(--dark-border) !important;
+}
+
+.MuiInput-underline:hover:not(.Mui-disabled)::before {
+  border-bottom-color: var(--dark-accent) !important;
 }

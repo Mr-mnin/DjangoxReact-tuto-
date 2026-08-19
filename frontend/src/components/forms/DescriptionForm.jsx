@@ -6,7 +6,7 @@ export default function MultilineTextFields({label, rows}) {
   return (
     <Box 
       component="form"
-      sx={{ '& .MuiTextField-root': { m: 1, width: '20vw' } }}
+      className="description-form"
       noValidate
       autoComplete="off"
     >
@@ -16,8 +16,8 @@ export default function MultilineTextFields({label, rows}) {
                   label={label}
                   multiline
                   rows={rows}
-                  defaultValue="Default Value"
-                  variant="standard"
+                    variant="outlined"
+                    fullWidth
               />
         
       

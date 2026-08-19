@@ -6,7 +6,8 @@ export default function TextFields({ label }) {
             id="standard-basic"
             sx={{ width: '100%' }}
             label={label}
-            variant="standard"
+            variant="outlined"
+            fullWidth
         />
         
     );

@@ -20,8 +20,9 @@ div{
     text-align: center;
     padding: 24px 32px;
     border-radius: 8px;
-    background: white;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+    background: #111827;
+    border: 1px solid rgba(148, 163, 184, 0.2);
+    box-shadow: 0 12px 24px rgba(2, 6, 23, 0.4);
     font-size: 1.1rem;
 }
 .subheader {

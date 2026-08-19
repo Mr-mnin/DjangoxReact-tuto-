@@ -12,13 +12,14 @@ export default function Selectform({ label, options }) {
     };
 
     return (
-        <FormControl fullWidth variant="standard">
+        <FormControl fullWidth variant="outlined">
             <InputLabel id={`${label}-select-label`}>{label}</InputLabel>
             <Select
                 labelId={`${label}-select-label`}
                 id={`${label}-select`}
                 value={value}
                 onChange={handleChange}
+                label={label}
             >
                 {options.map((option) => (
                     <MenuItem key={option.id} value={option.id}>
