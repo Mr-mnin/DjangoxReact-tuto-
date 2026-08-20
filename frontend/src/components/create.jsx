@@ -6,6 +6,8 @@ import Selectform from './forms/SelectForm';
 import AddBoxIcon from '@mui/icons-material/AddBox';
 import MultiSelectForm from './forms/MultiSelectForm';
 import MultilineTextFields from "./forms/DescriptionForm.jsx";
+import Button from '@mui/material/Button';
+
 
 
 
@@ -60,6 +62,19 @@ const Create = () => {
             label={'Leagues'}
             options={leagues}
           />
+
+          <Box >
+            <Button
+              sx={{
+                width: '314%',
+                fontWeight: 'Bold',
+                justifyContent: 'flex-start',
+              }}
+              variant="contained"
+            >
+              <span style={{ width: '500%', textAlign: 'center' }}>Submit</span>
+            </Button>
+          </Box>
         </Box>
         <Box className='formarea'>
           
@@ -80,7 +95,7 @@ const Create = () => {
         <Box className='formarea'>
           <MultilineTextFields
             label={'Deacription'}
-            rows={9}
+            rows={10}
           />
         </Box>
         </Box>

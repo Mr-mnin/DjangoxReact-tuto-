@@ -15,6 +15,7 @@ export default function Selectform({ label, options }) {
         <FormControl fullWidth variant="outlined">
             <InputLabel id={`${label}-select-label`}>{label}</InputLabel>
             <Select
+                sx={{ bgcolor: '#0b1120 ' }}
                 labelId={`${label}-select-label`}
                 id={`${label}-select`}
                 value={value}

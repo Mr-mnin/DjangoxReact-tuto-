@@ -9,6 +9,7 @@ export default function MultilineTextFields({label, rows}) {
       className="description-form"
       noValidate
       autoComplete="off"
+      sx={{ bgcolor:'#0b1120 '}}
     >
       <div>
               <TextField

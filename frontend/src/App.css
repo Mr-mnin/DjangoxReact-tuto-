@@ -1,7 +1,7 @@
 :root {
   --dark-bg: #0b1120;
   --dark-panel: #111827;
-  --dark-panel-strong: #1f2937;
+  --dark-panel-strong: #121820;
   --dark-border: rgba(148, 163, 184, 0.2);
   --dark-text: #e5e7eb;
   --dark-text-soft: #94a3b8;
@@ -37,7 +37,7 @@ a:hover {
 }
 
 .toolbar {
-  background-color: var(--dark-panel-strong) !important;
+  background-color: #303741a8 !important;
   color: var(--dark-text) !important;
   border: 1px solid var(--dark-border);
 }
@@ -63,7 +63,7 @@ a:hover {
   align-items: start;
   max-width: 1100px;
   margin: 0 auto;
-  background-color: var(--dark-panel-strong) !important;
+  background-color: var(--dark-panel) !important;
   color: var(--dark-text);
   padding: 28px;
   box-shadow: 0 12px 24px rgba(15, 23, 42, 0.35);
@@ -74,6 +74,7 @@ a:hover {
   display: flex;
   flex-direction: column;
   gap: 24px;
+  
   color: var(--dark-text);
 }
 
