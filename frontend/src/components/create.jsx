@@ -7,6 +7,7 @@ import AddBoxIcon from '@mui/icons-material/AddBox';
 import MultiSelectForm from './forms/MultiSelectForm';
 import MultilineTextFields from "./forms/DescriptionForm.jsx";
 import Button from '@mui/material/Button';
+import { useformik } from 'formik'
 
 
 
@@ -36,6 +37,20 @@ const Create = () => {
     GetData();
   }, []);
 
+  const formik = useformik({
+    initialValues: {
+      name: "",
+      description: "",
+      attendence: "",
+      city: "",
+      country: "",
+      league: "",
+      characteristics: [],
+    }
+  })
+
+  console.log('Form values', formik.values)
+
   return (
 
     <div>
@@ -54,13 +69,25 @@ const Create = () => {
         <Box className='formarea'>
           <TextField
             label={"Club name"}
+            name='name'
+            value={formik.value.name}
+            onChange={formik.handleChange}
+            onblur={formik.handleBlur}
           />
           <TextField
             label={"City"}
+            name='city'
+            value={formik.value.city}
+            onChange={formik.handleChange}
+            onblur={formik.handleBlur}
           />
           <Selectform
             label={'Leagues'}
             options={leagues}
+            name='league'
+            value={formik.value.league}
+            onChange={formik.handleChange}
+            onblur={formik.handleBlur}
           />
 
           <Box >
@@ -77,30 +104,43 @@ const Create = () => {
           </Box>
         </Box>
         <Box className='formarea'>
-          
-            <Selectform
-              label={'Country'}
-              options={countries}
+
+          <Selectform
+            label={'Country'}
+            options={countries}
+            name='country'
+            value={formik.value.country}
+            onChange={formik.handleChange}
+            onblur={formik.handleBlur}
           />
 
           <TextField
-            label={'Atendance'}
+            label={'Attendence'}
+            name='attendence'
+            value={formik.value.attendence}
+            onChange={formik.handleChange}
+            onblur={formik.handleBlur}
           />
 
           <MultiSelectForm
             label={'Charateristics'}
             options={characteristics}
-            />
+            name='characteristics'
+            value={formik.value.characteristics}
+            onChange={formik.handleChange}
+            onblur={formik.handleBlur}
+          />
         </Box>
         <Box className='formarea'>
           <MultilineTextFields
             label={'Deacription'}
             rows={10}
+            
           />
         </Box>
-        </Box>
+      </Box>
 
-      
+
 
 
     </div>

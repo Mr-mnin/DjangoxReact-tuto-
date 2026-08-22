@@ -4,12 +4,8 @@ import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 
-export default function Selectform({ label, options }) {
-    const [value, setValue] = React.useState('');
-
-    const handleChange = (event) => {
-        setValue(event.target.value);
-    };
+export default function Selectform({ label, options, value, name, onblur, onChange }) {
+    
 
     return (
         <FormControl fullWidth variant="outlined">
@@ -18,9 +14,11 @@ export default function Selectform({ label, options }) {
                 sx={{ bgcolor: '#0b1120 ' }}
                 labelId={`${label}-select-label`}
                 id={`${label}-select`}
-                value={value}
-                onChange={handleChange}
                 label={label}
+                value={value}
+                name={name}
+                onChange={onChange}
+                onblur={onblur}
             >
                 {options.map((option) => (
                     <MenuItem key={option.id} value={option.id}>
