@@ -7,7 +7,7 @@ import AddBoxIcon from '@mui/icons-material/AddBox';
 import MultiSelectForm from './forms/MultiSelectForm';
 import MultilineTextFields from "./forms/DescriptionForm.jsx";
 import Button from '@mui/material/Button';
-import { useformik } from 'formik'
+import { useFormik } from 'formik'
 
 
 
@@ -37,7 +37,7 @@ const Create = () => {
     GetData();
   }, []);
 
-  const formik = useformik({
+  const formik = useFormik({
     initialValues: {
       name: "",
       description: "",
@@ -46,7 +46,20 @@ const Create = () => {
       country: "",
       league: "",
       characteristics: [],
-    }
+    },
+    onSubmit: (values, { setSubmitting, resetForm }) => {
+      AxiosInstance.post('clubs/', values)
+        .then((res) => {
+          console.log('Club created:', res.data);
+          resetForm();
+        })
+        .catch((err) => {
+          console.error('Error creating club:', err);
+        })
+        .finally(() => {
+          setSubmitting(false);
+        });
+    },
   })
 
   console.log('Form values', formik.values)
@@ -61,7 +74,10 @@ const Create = () => {
         </Typography>
       </Box>
 
-      <Box className="formbox"
+      <Box
+        component="form"
+        onSubmit={formik.handleSubmit}
+        className="formbox"
         sx={{
           borderBottomLeftRadius: 12,
           borderBottomRightRadius: 12,
@@ -70,14 +86,14 @@ const Create = () => {
           <TextField
             label={"Club name"}
             name='name'
-            value={formik.value.name}
+            value={formik.values.name}
             onChange={formik.handleChange}
             onblur={formik.handleBlur}
           />
           <TextField
             label={"City"}
             name='city'
-            value={formik.value.city}
+            value={formik.values.city}
             onChange={formik.handleChange}
             onblur={formik.handleBlur}
           />
@@ -85,23 +101,10 @@ const Create = () => {
             label={'Leagues'}
             options={leagues}
             name='league'
-            value={formik.value.league}
+            value={formik.values.league}
             onChange={formik.handleChange}
             onblur={formik.handleBlur}
           />
-
-          <Box >
-            <Button
-              sx={{
-                width: '314%',
-                fontWeight: 'Bold',
-                justifyContent: 'flex-start',
-              }}
-              variant="contained"
-            >
-              <span style={{ width: '500%', textAlign: 'center' }}>Submit</span>
-            </Button>
-          </Box>
         </Box>
         <Box className='formarea'>
 
@@ -109,7 +112,7 @@ const Create = () => {
             label={'Country'}
             options={countries}
             name='country'
-            value={formik.value.country}
+            value={formik.values.country}
             onChange={formik.handleChange}
             onblur={formik.handleBlur}
           />
@@ -117,7 +120,7 @@ const Create = () => {
           <TextField
             label={'Attendence'}
             name='attendence'
-            value={formik.value.attendence}
+            value={formik.values.attendence}
             onChange={formik.handleChange}
             onblur={formik.handleBlur}
           />
@@ -126,17 +129,36 @@ const Create = () => {
             label={'Charateristics'}
             options={characteristics}
             name='characteristics'
-            value={formik.value.characteristics}
+            value={formik.values.characteristics}
             onChange={formik.handleChange}
             onblur={formik.handleBlur}
           />
         </Box>
-        <Box className='formarea'>
+        <Box className='formarea' sx={{
+          flexDirection: 'none',
+
+        }}>
           <MultilineTextFields
             label={'Deacription'}
             rows={10}
-            
+            name='description'
+            value={formik.values.description}
+            onChange={formik.handleChange}
+            onBlur={formik.handleBlur}
           />
+        </Box>
+        <Box className="submit-action">
+          <Button
+            type="submit"
+            sx={{
+              width: '100%',
+              fontWeight: 'bold',
+              justifyContent: 'center',
+            }}
+            variant="contained"
+          >
+            Submit
+          </Button>
         </Box>
       </Box>
 

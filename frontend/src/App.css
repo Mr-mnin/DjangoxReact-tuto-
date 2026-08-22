@@ -63,7 +63,7 @@ a:hover {
   align-items: start;
   max-width: 1100px;
   margin: 0 auto;
-  background-color: var(--dark-panel) !important;
+  background-color: var(--dark-panel-strong) !important;
   color: var(--dark-text);
   padding: 28px;
   box-shadow: 0 12px 24px rgba(15, 23, 42, 0.35);
@@ -74,20 +74,43 @@ a:hover {
   display: flex;
   flex-direction: column;
   gap: 24px;
-  
+
   color: var(--dark-text);
 }
 
-.formarea > .MuiFormControl-root,
-.formarea > .MuiTextField-root,
-.formarea > form,
-.formarea > div {
+.submit-action {
+  grid-column: 1 / -1;
+  box-sizing: border-box;
+}
+
+.formarea>.MuiFormControl-root,
+.formarea>.MuiTextField-root,
+.formarea>form,
+.formarea>div {
   width: 100%;
-  margin: 0.25%;
+  margin: 1.5%;
 }
 
 .formarea .MuiTextField-root {
   width: 100%;
+}
+
+/* Force consistent dark background across all input types */
+.formbox .MuiOutlinedInput-root {
+  background-color: #0b1120 !important;
+}
+
+/* Kill Chrome/Edge autofill blue highlight override */
+.formbox input:-webkit-autofill,
+.formbox input:-webkit-autofill:hover,
+.formbox input:-webkit-autofill:focus,
+.formbox textarea:-webkit-autofill,
+.formbox textarea:-webkit-autofill:hover,
+.formbox textarea:-webkit-autofill:focus {
+  -webkit-text-fill-color: var(--dark-text) !important;
+  -webkit-box-shadow: 0 0 0px 1000px #0b1120 inset !important;
+  box-shadow: 0 0 0px 1000px #0b1120 inset !important;
+  transition: background-color 5000s ease-in-out 0s;
 }
 
 @media (max-width: 900px) {

@@ -4,8 +4,8 @@ import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 
-export default function Selectform({ label, options, value, name, onblur, onChange }) {
-    
+export default function Selectform({ label, options, value, name, onBlur, onChange }) {
+
 
     return (
         <FormControl fullWidth variant="outlined">
@@ -18,7 +18,7 @@ export default function Selectform({ label, options, value, name, onblur, onChan
                 value={value}
                 name={name}
                 onChange={onChange}
-                onblur={onblur}
+                onBlur={onBlur}
             >
                 {options.map((option) => (
                     <MenuItem key={option.id} value={option.id}>

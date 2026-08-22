@@ -25,11 +25,18 @@ const MenuProps = {
 
 
 
-export default function MultiSelectForm({ label, options, value, name, onblur, onChange }) {
+export default function MultiSelectForm({ label, options, value, name, onBlur, onChange }) {
     const theme = useTheme();
-    const [, set] = React.useState([]);
 
-
+    const handleDelete = (valueToDelete) => {
+        const newValue = value.filter((v) => v !== valueToDelete);
+        onChange({
+            target: {
+                name,
+                value: newValue,
+            },
+        });
+    };
 
     return (
         <div>
@@ -43,14 +50,14 @@ export default function MultiSelectForm({ label, options, value, name, onblur, o
                     value={value}
                     name={name}
                     onChange={onChange}
-                    onblur={onblur}
+                    onBlur={onBlur}
                     input={<OutlinedInput id="select-multiple-chip" label={label} />}
                     renderValue={(selected) => (
                         <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 0.5 }}>
                             {selected.map((value) => (
                                 <Chip
                                     key={value}
-                                    label={options.find(option => option.id === value)?.name }
+                                    label={options.find(option => option.id === value)?.name}
                                     onDelete={() => handleDelete(value)}
                                     onMouseDown={(event) => event.stopPropagation()}
                                 />
@@ -63,7 +70,7 @@ export default function MultiSelectForm({ label, options, value, name, onblur, o
                         <MenuItem
                             key={option.id}
                             value={option.id}
-                            
+
                         >
                             {option.name}
                         </MenuItem>

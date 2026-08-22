@@ -1,6 +1,6 @@
 import TextField from '@mui/material/TextField';
 
-export default function TextFields({ label, value, name, onblur, onChange }) {
+export default function TextFields({ label, value, name, onBlur, onChange }) {
     return (
         <TextField
             sx={{ width: '100%', bgcolor: '#0b1120 ' }}
@@ -11,10 +11,10 @@ export default function TextFields({ label, value, name, onblur, onChange }) {
             value={value}
             name={name}
             onChange={onChange}
-            onblur={onblur}
+            onBlur={onBlur}
 
         />
-        
+
     );
 }
 
