@@ -47,18 +47,13 @@ const Create = () => {
       league: "",
       characteristics: [],
     },
-    onSubmit: (values, { setSubmitting, resetForm }) => {
-      AxiosInstance.post('clubs/', values)
-        .then((res) => {
-          console.log('Club created:', res.data);
-          resetForm();
+    onSubmit: (values) => {
+      AxiosInstance.post('footballclub/', values)
+        .then(() => {
+          console.log('Submitted');
+          
         })
-        .catch((err) => {
-          console.error('Error creating club:', err);
-        })
-        .finally(() => {
-          setSubmitting(false);
-        });
+        
     },
   })
 
