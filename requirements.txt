@@ -8,6 +8,7 @@ django-cors-headers==4.7.0
 
 # Frontend / React dependencies (run from the frontend/ folder):
 # npm install formik --save
+#npm install yup --save
 # npm install
 # npm install axios
 # The app uses these packages from package.json:
