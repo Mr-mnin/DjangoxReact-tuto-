@@ -2,7 +2,7 @@ import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 
 
-export default function MultilineTextFields({ label, rows, value, name, onBlur, onChange }) {
+export default function MultilineTextFields({ label, rows, value, name, onBlur, onChange, error, helperText }) {
   return (
     <Box
       component="form"
@@ -24,6 +24,8 @@ export default function MultilineTextFields({ label, rows, value, name, onBlur, 
           name={name}
           onChange={onChange}
           onBlur={onBlur}
+          error={error}
+          helperText={helperText}
 
         />
 
