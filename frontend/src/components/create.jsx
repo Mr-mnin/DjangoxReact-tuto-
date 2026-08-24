@@ -44,6 +44,9 @@ const Create = () => {
     name: yup
       .string("The name must be text")
       .required("The name is required"),
+    description: yup
+      .string("The description must be text")
+      .required("The description is required"),
     attendence: yup
       .number("The atendence must be in numbers")
       .required("The atendence is required"),

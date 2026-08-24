@@ -44,6 +44,12 @@ class FootballClubViewSet(viewsets.ModelViewSet):
     queryset = FootballClub.objects.all()
     serializer_class = FootballClubSerializer
 
+    def list(self, request,):
+            queryset = FootballClub.objects.all()
+            serializer = self.get_serializer(queryset, many=True)
+            return Response(serializer.data)
+    
+
     def create(self, request):
         serializer = self.serializer_class(data = request.data)
         if serializer.is_valid():

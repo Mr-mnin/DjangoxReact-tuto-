@@ -1,20 +1,16 @@
 import "./style.css";
+import AddBoxIcon from '@mui/icons-material/AddBox';
+import { Box, Typography } from "@mui/material"
 
 const Home = () => {
   return (
     <div >
-      <div>Welcome to Home page</div>
-      <ul>
-        <li>
-          <a href="http://localhost:5173/e">Edit</a>
-        </li>
-        <li>
-          <a href="http://localhost:5173/d">Delete</a>
-        </li>
-        <li>
-          <a href="http://localhost:5173/c">Create</a>
-        </li>
-      </ul>
+      <Box className="TopBar">
+        <AddBoxIcon />
+        <Typography variant="h6" component="div" sx={{ flexGrow: 1, ml: 1, }}>
+          Create a Club
+        </Typography>
+      </Box>
     </div>
   );
 };
