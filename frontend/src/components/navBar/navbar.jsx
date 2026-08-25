@@ -26,15 +26,16 @@ export default function Navbar({ content }) {
         position="fixed"
         sx={{ zIndex: (theme) => theme.zIndex.drawer + 1 }}
       >
-        <Toolbar className="toolbar">
+        <Toolbar className="toolbar" sx={{ display: "flex", alignItems: "center", gap: 3, ml:-1.5 }}>
 
-          <IconButton sx={{ mr: 4 }}
+          <IconButton
             color="inherit"
             onClick={() => setIsbigmenu(!isbigmenu)}
+            sx={{ display: "flex", alignItems: "center", justifyContent: "center" }}
           >
             {isbigmenu ? <MenuOpenIcon /> : <MenuIcon />}
           </IconButton>
-          <img src={logo} alt="Logo" style={{ width: "120px", height: "50px", marginleft: "10px" }} />
+          <img src={logo} alt="Logo" style={{ width: "120px", height: "50px" }} />
         </Toolbar>
       </AppBar>
       <Drawer
