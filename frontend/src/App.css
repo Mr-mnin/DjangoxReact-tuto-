@@ -61,7 +61,7 @@ a:hover {
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 24px;
   align-items: start;
-  max-width: 1100px;
+  max-width: inherit;
   margin: 0 auto;
   background-color: var(--dark-panel-strong) !important;
   color: var(--dark-text);
@@ -81,6 +81,10 @@ a:hover {
 .submit-action {
   grid-column: 1 / -1;
   box-sizing: border-box;
+}
+.MuiChip-root{
+  margin-right: 3px !important;
+  margin-bottom: 3px !important;
 }
 
 .formarea>.MuiFormControl-root,
