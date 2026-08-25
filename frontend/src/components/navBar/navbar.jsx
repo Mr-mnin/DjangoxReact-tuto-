@@ -16,8 +16,8 @@ const minidrawerWidth = 60;
 
 export default function Navbar({ content }) {
 
-  const [isbigmenu, setIsbigmenu] = useState(true);
-  const currentDrawerWidth = isbigmenu ? drawerWidth : minidrawerWidth;
+  const [isminimenu, setIsminimenu] = useState(true);
+  const currentDrawerWidth = isminimenu ? minidrawerWidth:drawerWidth;
 
   return (
     <Box sx={{ display: "flex" }}>
@@ -30,10 +30,10 @@ export default function Navbar({ content }) {
 
           <IconButton
             color="inherit"
-            onClick={() => setIsbigmenu(!isbigmenu)}
+            onClick={() => setIsminimenu(!isminimenu)}
             sx={{ display: "flex", alignItems: "center", justifyContent: "center" }}
           >
-            {isbigmenu ? <MenuOpenIcon /> : <MenuIcon />}
+            {isminimenu ? <MenuIcon /> : <MenuOpenIcon />}
           </IconButton>
           <img src={logo} alt="Logo" style={{ width: "120px", height: "50px" }} />
         </Toolbar>
@@ -61,7 +61,7 @@ export default function Navbar({ content }) {
         }}
       >
         <Toolbar />
-        {isbigmenu ? <Menu /> : <Menumini />}
+        {isminimenu ? <Menumini /> : <Menu />}
       </Drawer>
       <Box
         component="main"

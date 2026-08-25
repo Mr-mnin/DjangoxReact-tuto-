@@ -1,9 +1,11 @@
 import "./style.css";
 import { useEffect, useMemo, useState } from "react";
 import CalendarViewMonthIcon from '@mui/icons-material/CalendarViewMonth';
-import { Box, Chip, Typography } from "@mui/material"
+import { Link } from "react-router-dom";
+import { Box, Chip, IconButton, Typography } from "@mui/material"
 import { MaterialReactTable } from "material-react-table";
 import AxiosInstance from "./Axios.jsx";
+import DrawIcon from '@mui/icons-material/Draw';
 
 const Home = () => {
   const [MyData, setMyData] = useState([]);
@@ -44,7 +46,7 @@ const Home = () => {
         accessorKey: 'characteristic_names',
         header: 'Characteristic',
         Cell: ({ cell }) => (
-          <div style={{display:'flex', gap:'8px,', flexWrap:'wrap'}}>
+          <div style={{display:'flex', gap:'8px,', flexWrap:'wrap',mt:1}}>
             {
               cell.getValue()?.map((char, index) => (
                 <Chip
@@ -69,9 +71,24 @@ const Home = () => {
           View all clubs
         </Typography>
       </Box>
-      <b><MaterialReactTable columns={columns} data={MyData} /></b>
+      <MaterialReactTable
+        columns={columns}
+        data={MyData}
+        enableRowActions
+        renderRowActions={({ row }) => (
+          <Box sx={{display:'flex', flexWrap:'nowrap', gap: '8px'}}>
+            <IconButton
+              component={Link}
+              to={`e/${row.original.id}`}
+              >
+              <DrawIcon color="primary"/>
+            </IconButton>
+          </Box>
+        )}
+      />
     </div>
   );
 };
+
 
 export default Home;
