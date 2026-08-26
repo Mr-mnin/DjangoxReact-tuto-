@@ -24,76 +24,80 @@ export default function Menu() {
   const path = location.pathname;
   console.log("Current path:", path);
 
+  const countries = [
+    "England",
+    "India",
+    "USA",
+    "Netherlands",
+    "Spain",
+    "Germany",
+    "Italy",
+    "France",
+    "Portugal",
+    "Brazil",
+    "Argentina",
+    "Belgium",
+  ];
 
   return (
     <>
-    <List
-      sx={{ width: '100%', maxWidth: 360, bgcolor: 'background.paper' }}
-      component="nav"
-      aria-labelledby="nested-list-subheader"
-      subheader={
-        <ListSubheader component="div" id="nested-list-subheader" className="subheader">
-          Football clubs
-        </ListSubheader>
-      }
-    >
-  
-      <ListItemButton onClick={handleClick} component={Link} to="" selected={path === "/"}>
-        <ListItemIcon>
-          <DashboardIcon />
-        </ListItemIcon>
-        <ListItemText primary={<b>All Clubs</b>} />
-        {open ? <ExpandLess /> : <ExpandMore />}
-      </ListItemButton>
-      <Collapse in={open} timeout="auto" unmountOnExit>
-        <List component="div" disablePadding>
-          <ListItemButton sx={{ pl: 4 }}>
-            <ListItemIcon>
-                <DashboardCustomizeIcon />
-              </ListItemIcon>
-            <ListItemText primary="England" />
-                  </ListItemButton>
-                  <ListItemButton sx={{ pl: 4 }}>
-            <ListItemIcon>
-              <DashboardCustomizeIcon />  
-            </ListItemIcon>
-            <ListItemText primary="India" />
-                  </ListItemButton>
-                  <ListItemButton sx={{ pl: 4 }}>
-            <ListItemIcon>
-              <DashboardCustomizeIcon />
-            </ListItemIcon>
-            <ListItemText primary="USA" />
-                  </ListItemButton>
-                  <ListItemButton sx={{ pl: 4 }}>
-            <ListItemIcon>
-              <DashboardCustomizeIcon />
-            </ListItemIcon>
-            <ListItemText primary="Netherlands" />
-          </ListItemButton>
-        </List>
-      </Collapse>
-    </List>
-        <List
-      sx={{ width: '100%', maxWidth: 360, bgcolor: 'background.paper' }}
-      component="nav"
-      aria-labelledby="nested-list-subheader"
-      subheader={
-        <ListSubheader component="div" id="nested-list-subheader">
-          Creating records
-        </ListSubheader>
-      }
-    >
-  
-      <ListItemButton component={Link} to="/c" selected={path === "/c"}>
-        <ListItemIcon>
-          <AddBoxIcon />
-        </ListItemIcon>
-         <ListItemText primary="Create Clubs" />
-       
-      </ListItemButton>
-      
-    </List>
-      </> 
+      <List
+        sx={{ width: '100%', maxWidth: 360, bgcolor: 'background.paper' }}
+        component="nav"
+        aria-labelledby="nested-list-subheader"
+        subheader={
+          <ListSubheader component="div" id="nested-list-subheader" className="subheader">
+            Football clubs
+          </ListSubheader>
+        }
+      >
+
+        <ListItemButton onClick={handleClick} component={Link} to="/" selected={path === "/" && !location.search}>
+          <ListItemIcon>
+            <DashboardIcon />
+          </ListItemIcon>
+          <ListItemText primary={<b>All Clubs</b>} />
+          {open ? <ExpandLess /> : <ExpandMore />}
+        </ListItemButton>
+        <Collapse in={open} timeout="auto" unmountOnExit>
+          <List component="div" disablePadding>
+            {countries.map((country) => (
+              <ListItemButton
+                key={country}
+                sx={{ pl: 4 }}
+                component={Link}
+                to={`/?country=${country}`}
+                selected={location.search === `?country=${country}`}
+              >
+                <ListItemIcon>
+                  <DashboardCustomizeIcon />
+                </ListItemIcon>
+                <ListItemText primary={country} />
+              </ListItemButton>
+            ))}
+          </List>
+        </Collapse>
+      </List>
+      <List
+        sx={{ width: '100%', maxWidth: 360, bgcolor: 'background.paper' }}
+        component="nav"
+        aria-labelledby="nested-list-subheader"
+        subheader={
+          <ListSubheader component="div" id="nested-list-subheader">
+            Creating records
+          </ListSubheader>
+        }
+      >
+
+        <ListItemButton component={Link} to="/c" selected={path === "/c"}>
+          <ListItemIcon>
+            <AddBoxIcon />
+          </ListItemIcon>
+          <ListItemText primary="Create Clubs" />
+
+        </ListItemButton>
+
+      </List>
+    </>
   );
 }

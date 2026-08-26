@@ -1,14 +1,17 @@
 import "./style.css";
 import { useEffect, useMemo, useState } from "react";
 import CalendarViewMonthIcon from '@mui/icons-material/CalendarViewMonth';
-import { Link } from "react-router-dom";
+import { Link, useSearchParams } from "react-router-dom";
 import { Box, Chip, IconButton, Typography } from "@mui/material"
 import { MaterialReactTable } from "material-react-table";
 import AxiosInstance from "./Axios.jsx";
 import DrawIcon from '@mui/icons-material/Draw';
+import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
 
 const Home = () => {
   const [MyData, setMyData] = useState([]);
+  const [searchParams] = useSearchParams();
+  const selectedCountry = searchParams.get('country');
 
   const GetData = async () => {
     AxiosInstance.get('footballclub/').then((rest) => {
@@ -19,6 +22,10 @@ const Home = () => {
   useEffect(() => {
     GetData();
   }, []);
+
+  const filteredData = selectedCountry
+    ? MyData.filter((club) => club.country_details?.name === selectedCountry)
+    : MyData;
 
   const columns = useMemo(
     () => [
@@ -73,15 +80,22 @@ const Home = () => {
       </Box>
       <MaterialReactTable
         columns={columns}
-        data={MyData}
+        data={filteredData}
         enableRowActions
         renderRowActions={({ row }) => (
-          <Box sx={{display:'flex', flexWrap:'nowrap', gap: '8px'}}>
+          <Box sx={{display:'flex', flexWrap:'nowrap', gap: '8px', mr:3}}>
             <IconButton
               component={Link}
               to={`e/${row.original.id}`}
               >
               <DrawIcon color="primary"/>
+            </IconButton>
+
+            <IconButton
+              component={Link}
+              to={`d/${row.original.id}`}
+            >
+              <DeleteForeverIcon color="error" />
             </IconButton>
           </Box>
         )}
