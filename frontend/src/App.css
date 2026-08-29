@@ -224,3 +224,6 @@ a:hover {
   margin-bottom: 10px;
   border-radius: 8px;
 }
+th:first-of-type .Mui-TableHeadCell-Content-Labels {
+  margin-left: 1.2vw !important;
+}
