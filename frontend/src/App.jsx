@@ -7,6 +7,7 @@ import Create from "./components/create";
 import Edit from "./components/edit";
 import Navbar from "./components/navBar/navbar.jsx";
 
+
 const darkTheme = createTheme({
   palette: {
     mode: "dark",
@@ -26,6 +27,7 @@ const darkTheme = createTheme({
 
 function App() {
   return (
+  
     <ThemeProvider theme={darkTheme}>
       <Navbar
         content={

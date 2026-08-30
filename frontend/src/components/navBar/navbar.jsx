@@ -17,7 +17,7 @@ const minidrawerWidth = 60;
 export default function Navbar({ content }) {
 
   const [isminimenu, setIsminimenu] = useState(true);
-  const currentDrawerWidth = isminimenu ? minidrawerWidth:drawerWidth;
+  const currentDrawerWidth = isminimenu ? minidrawerWidth : drawerWidth;
 
   return (
     <Box sx={{ display: "flex" }}>
@@ -26,7 +26,7 @@ export default function Navbar({ content }) {
         position="fixed"
         sx={{ zIndex: (theme) => theme.zIndex.drawer + 1 }}
       >
-        <Toolbar className="toolbar" sx={{ display: "flex", alignItems: "center", gap: 3, ml:-1.5 }}>
+        <Toolbar className="toolbar" sx={{ display: "flex", alignItems: "center", gap: 3, ml: -1.5 }}>
 
           <IconButton
             color="inherit"
